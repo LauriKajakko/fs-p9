@@ -12,4 +12,8 @@ const calculateBmi = (height: number, weight: number): string => {
   };
 };
 
-console.log(calculateBmi(180, 74))
+const height: number = Number (process.argv[2]);
+const weight: number = Number (process.argv[3]);
+if (isNaN(height) || isNaN(weight)) throw new Error('Provide height and weight as number arguments. Height first.');
+
+console.log(calculateBmi(height, weight))

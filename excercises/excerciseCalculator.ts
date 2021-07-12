@@ -7,6 +7,7 @@ interface excerciseFeedBack {
   success: boolean,
   rating: rating,
   ratingDescription: ratingDescription,
+  
   target: number,
   average: number,
 }
@@ -50,4 +51,15 @@ const calculateExcercises = (hours: Array<number>, target: number): excerciseFee
   );
 };
 
-console.log(calculateExcercises([3, 0, 2, 4.5, 0, 3, 1], 2))
+const target: number = Number (process.argv[2]);
+if (isNaN(Number(target))) throw new Error('Provide target Number as the first argument');
+
+const arr: Array<number> = process.argv[3]
+  .split(',')
+  .map((val) => Number (val));
+
+arr.forEach((val) => {
+  if (isNaN(Number(val))) throw new Error('Provide an array of workout hours/day separated with ONLY "," as the second argument');
+})
+
+console.log(calculateExcercises(arr, target));
