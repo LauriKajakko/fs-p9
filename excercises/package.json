@@ -1,0 +1,16 @@
+{
+  "name": "excercises",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts-node": "ts-node"
+  },
+  "author": "lauri kajakko",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  }
+}
