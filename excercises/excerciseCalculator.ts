@@ -32,7 +32,7 @@ const computeRatingDescription = (rating: rating): ratingDescription => {
   }
 };
 
-const calculateExcercises = (hours: Array<number>, target: number): excerciseFeedBack => {
+export const calculateExcercises = (hours: Array<number>, target: number): excerciseFeedBack => {
   const average = hours.reduce((acc, curr) => acc + curr) / hours.length;
   const success = average >= target;
   const rating = computeRating(average, target);
@@ -49,16 +49,3 @@ const calculateExcercises = (hours: Array<number>, target: number): excerciseFee
     }
   );
 };
-
-const target = Number (process.argv[2]);
-if (isNaN(Number(target))) throw new Error('Provide target Number as the first argument');
-
-const arr: Array<number> = process.argv[3]
-  .split(',')
-  .map((val) => Number (val));
-
-arr.forEach((val) => {
-  if (isNaN(Number(val))) throw new Error('Provide an array of workout hours/day separated with ONLY "," as the second argument');
-});
-
-console.log(calculateExcercises(arr, target));
