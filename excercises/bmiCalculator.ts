@@ -11,5 +11,5 @@ export const calculateBmi = (height: number, weight: number): bmi => {
       return 'overweight';
     default:
       return 'obese';
-  };
+  }
 };
