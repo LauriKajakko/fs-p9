@@ -1,10 +1,20 @@
+import { v1 } from 'uuid';
 import patientsData from '../data/patients.json';
+import { Patient, PublicPatient, NewPatient } from '../types';
 
-import { Patient, PublicPatient } from '../types';
-
+/* No db just runtime memory */
 const patients: Array<Patient> = patientsData as Array<Patient>;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const getPublicPatients = (): PublicPatient[] => patients.map(({ ssn, ...rest }) => rest);
+const getPublicPatients = (): Array<PublicPatient> => patients.map(({ ssn, ...rest }) => rest);
 
-export { getPublicPatients };
+const createPatient = (patient: NewPatient) => {
+  const newPatient = {
+    id: v1(),
+    ...patient,
+  };
+  patients.push(newPatient);
+  return newPatient;
+};
+
+export { getPublicPatients, createPatient };
