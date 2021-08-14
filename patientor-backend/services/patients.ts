@@ -5,7 +5,6 @@ import { Patient, PublicPatient, NewPatient } from '../types';
 /* No db just runtime memory */
 const patients: Array<Patient> = patientsData as Array<Patient>;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const getPublicPatients = (): Array<PublicPatient> => patients.map(({ ssn, ...rest }) => rest);
 
 const createPatient = (patient: NewPatient) => {
